@@ -3,8 +3,8 @@
   "version": "0.0.64",
   "description": "The default, Theme UI-based for the Blocks editor",
   "repository": "blocks/blocks",
-  "main": "dist/react.cjs.js",
-  "module": "dist/react.esm.js",
+  "main": "dist/blocks-react.cjs.js",
+  "module": "dist/blocks-react.esm.js",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "7.10.3",

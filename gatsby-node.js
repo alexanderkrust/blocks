@@ -1,10 +1,11 @@
 const { transforms, queries } = require('blocks-ui')
+const webpack = require('webpack')
 
 const BlockTemplate = require.resolve('./src/templates/block')
 
-const toComponentName = name => name.charAt(0).toUpperCase() + name.slice(1)
+const toComponentName = (name) => name.charAt(0).toUpperCase() + name.slice(1)
 
-exports.sourceNodes = ({ actions }) => {
+exports.createSchemaCustomization = ({ actions }) => {
   actions.createTypes(`
     type Block implements Node {
       displayName: String!
@@ -77,7 +78,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  result.data.blocks.nodes.forEach(block => {
+  result.data.blocks.nodes.forEach((block) => {
     createPage({
       path: block.slug,
       component: BlockTemplate,
@@ -90,6 +91,25 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     node: {
       fs: 'empty'
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        process: 'process/browser'
+      }),
+      new webpack.ProvidePlugin({
+        Buffer: ['buffer', 'Buffer']
+      })
+    ],
+
+    resolve: {
+      alias: {
+        process: 'process/browser'
+      },
+      fallback: {
+        path: require.resolve('path-browserify'),
+        asset: require.resolve('assert'),
+        buffer: require.resolve('buffer')
+      }
     }
   })
 }

@@ -19,13 +19,13 @@ exports.onCreateDevServer = ({ app, store, reporter }) => {
   const state = store.getState()
   const dirname = path.join(state.program.directory, 'src', 'pages')
 
-  const getFileContents = async page => {
+  const getFileContents = async (page) => {
     const filename = path.join(dirname, page)
     const contents = await read(filename, 'utf8')
     return contents
   }
 
-  const relativizePagePath = pagePath => {
+  const relativizePagePath = (pagePath) => {
     return pagePath.replace(dirname + path.sep, '')
   }
 
@@ -78,7 +78,7 @@ exports.onCreateDevServer = ({ app, store, reporter }) => {
     const globPattern = dirname + '/**/*.js'
     const pages = globby.sync(globPattern, { nodir: true })
 
-    const blocksPromises = pages.map(async page => {
+    const blocksPromises = pages.map(async (page) => {
       const src = await read(page)
 
       try {
@@ -124,7 +124,7 @@ exports.onPreBootstrap = ({ store }) => {
 
   const dirs = [path.join(program.directory, 'src', 'pages')]
 
-  dirs.forEach(dir => {
+  dirs.forEach((dir) => {
     if (!fs.existsSync(dir)) {
       mkdirp.sync(dir)
     }
