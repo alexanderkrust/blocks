@@ -14,4 +14,5 @@ export const pageQuery = graphql`
   }
 `
 
-export default ({ data: { block } }) => <Block block={block} />
+const BlockTemplate = ({ data: { block } }) => <Block block={block} />
+export default BlockTemplate

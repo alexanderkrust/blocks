@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as Blocks from '../blocks'
 
-export default () => (
+const BlocksOld = () => (
   <>
     {Object.entries(Blocks).map(([name, Component]) => (
       <div key={name}>
@@ -12,3 +12,5 @@ export default () => (
     ))}
   </>
 )
+
+export default BlocksOld

@@ -6,11 +6,11 @@ import useDebounce from '../use-debounce'
 
 const PAGE = 'foo.js'
 
-const Layout = props => {
+const Layout = (props) => {
   return <div className="layout">{props.children}</div>
 }
 
-export default ({ relativePath = PAGE }) => {
+const EditorTemplate = ({ relativePath = PAGE }) => {
   const [code, setCode] = useState(null)
   const debouncedCode = useDebounce(code)
 
@@ -58,9 +58,11 @@ export default ({ relativePath = PAGE }) => {
       src={code}
       blocks={Blocks}
       layout={Layout}
-      onChange={newCode => {
+      onChange={(newCode) => {
         setCode(newCode)
       }}
     />
   )
 }
+
+export default EditorTemplate

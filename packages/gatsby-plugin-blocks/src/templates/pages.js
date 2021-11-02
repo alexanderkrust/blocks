@@ -17,7 +17,7 @@ export default () => (
 );
 `
 
-export default () => {
+const PagesTemplate = () => {
   const [pages, setPages] = useState(null)
   const [newPage, setNewPage] = useState('')
 
@@ -35,7 +35,7 @@ export default () => {
     return null
   }
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (!newPage) {
@@ -63,12 +63,12 @@ export default () => {
       <form onSubmit={handleSubmit}>
         <label>
           New page <br />
-          <input onChange={e => setNewPage(e.target.value)} />
+          <input onChange={(e) => setNewPage(e.target.value)} />
           <input type="submit" value="Create new page" />
         </label>
       </form>
       <ul sx={{ mt: [3, 4, 5] }}>
-        {pages.map(page => (
+        {pages.map((page) => (
           <li key={page}>
             <a href={`/___blocks/edit?page=${page}`}>{page}</a>
           </li>
@@ -77,3 +77,5 @@ export default () => {
     </main>
   )
 }
+
+export default PagesTemplate

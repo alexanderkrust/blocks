@@ -89,9 +89,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
-    node: {
-      fs: 'empty'
-    },
     plugins: [
       new webpack.ProvidePlugin({
         process: 'process/browser'
@@ -106,6 +103,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         process: 'process/browser'
       },
       fallback: {
+        fs: false,
         path: require.resolve('path-browserify'),
         asset: require.resolve('assert'),
         buffer: require.resolve('buffer')
