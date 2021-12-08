@@ -4,15 +4,25 @@ import * as Blocks from '@blocks/react'
 
 import useDebounce from '../use-debounce'
 
-const PAGE = 'foo.js'
-
 const Layout = (props) => {
   return <div className="layout">{props.children}</div>
 }
 
-const EditorTemplate = ({ relativePath = PAGE }) => {
+const EditorTemplate = () => {
   const [code, setCode] = useState(null)
+  const [relativePath, setRelativePath] = useState(null)
   const debouncedCode = useDebounce(code)
+
+  useEffect(() => {
+    let pageParam = null
+
+    if (typeof window !== 'undefined') {
+      const queryParams = new URLSearchParams(window.location.search)
+      pageParam = queryParams.get('page')
+    }
+
+    setRelativePath(pageParam)
+  }, [])
 
   useEffect(() => {
     const initializeCode = async () => {
@@ -29,8 +39,12 @@ const EditorTemplate = ({ relativePath = PAGE }) => {
       setCode(srcCode)
     }
 
+    if (!relativePath) {
+      return
+    }
+
     initializeCode()
-  }, [])
+  }, [relativePath])
 
   useEffect(() => {
     if (!debouncedCode) {

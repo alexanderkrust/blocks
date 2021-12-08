@@ -17,7 +17,7 @@ const read = util.promisify(fs.readFile)
 
 exports.onCreateDevServer = ({ app, store, reporter }) => {
   const state = store.getState()
-  const dirname = path.join(state.program.directory, 'src', 'pages')
+  const dirname = path.join(state.program.directory, 'src', 'pages', 'project')
 
   const getFileContents = async (page) => {
     const filename = path.join(dirname, page)

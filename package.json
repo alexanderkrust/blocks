@@ -95,5 +95,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "theme-ui": "0.3.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.16.0"
   }
 }

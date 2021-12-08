@@ -99,3 +99,113 @@ Object {
   },
 }
 `;
+
+exports[`should update internal Plugin state with ExportNamedDeclaration definitions 1`] = `
+Object {
+  "HeaderBasic": Node {
+    "children": Array [],
+    "closingElement": Node {
+      "end": 44,
+      "innerComments": undefined,
+      "leadingComments": undefined,
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 44,
+          "line": 1,
+        },
+        "filename": undefined,
+        "identifierName": undefined,
+        "start": Position {
+          "column": 38,
+          "line": 1,
+        },
+      },
+      "name": Node {
+        "end": 43,
+        "innerComments": undefined,
+        "leadingComments": undefined,
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 43,
+            "line": 1,
+          },
+          "filename": undefined,
+          "identifierName": undefined,
+          "start": Position {
+            "column": 40,
+            "line": 1,
+          },
+        },
+        "name": "div",
+        "start": 40,
+        "trailingComments": undefined,
+        "type": "JSXIdentifier",
+      },
+      "start": 38,
+      "trailingComments": undefined,
+      "type": "JSXClosingElement",
+    },
+    "end": 44,
+    "innerComments": undefined,
+    "leadingComments": undefined,
+    "loc": SourceLocation {
+      "end": Position {
+        "column": 44,
+        "line": 1,
+      },
+      "filename": undefined,
+      "identifierName": undefined,
+      "start": Position {
+        "column": 33,
+        "line": 1,
+      },
+    },
+    "openingElement": Node {
+      "attributes": Array [],
+      "end": 38,
+      "innerComments": undefined,
+      "leadingComments": undefined,
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 38,
+          "line": 1,
+        },
+        "filename": undefined,
+        "identifierName": undefined,
+        "start": Position {
+          "column": 33,
+          "line": 1,
+        },
+      },
+      "name": Node {
+        "end": 37,
+        "innerComments": undefined,
+        "leadingComments": undefined,
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 37,
+            "line": 1,
+          },
+          "filename": undefined,
+          "identifierName": undefined,
+          "start": Position {
+            "column": 34,
+            "line": 1,
+          },
+        },
+        "name": "div",
+        "start": 34,
+        "trailingComments": undefined,
+        "type": "JSXIdentifier",
+      },
+      "selfClosing": false,
+      "start": 33,
+      "trailingComments": undefined,
+      "type": "JSXOpeningElement",
+    },
+    "start": 33,
+    "trailingComments": undefined,
+    "type": "JSXElement",
+  },
+}
+`;
